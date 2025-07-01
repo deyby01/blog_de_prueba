@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos Los Posts</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        .post { border-bottom: 1px solid #ccc; padding-bottom: 1em; margin-bottom: 1em; }
+        h2 { color: #333; }
+    </style>
+</head>
+<body>
+    <h1>Lista de Posts</h1>
+    <ul>
+        {% for post in posts %}
+        <div class="post">
+            <h2><a href="{% url 'post_detail' post.pk %}">{{ post.titulo }}</a></h2>
+            <p><em>Autor: {{ post.autor.username }} | Publicado: {{ post.fecha_publicacion|date:"d M Y H:i" }}</em></p>
+            <p>{{ post.contenido|linebreaksbr }}</p>
+        </div>
+        {% empty %}
+            <p>Aun no hay posts publicados</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>

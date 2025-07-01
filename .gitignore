@@ -1,0 +1,14 @@
+# entornos virtuales
+venv/
+.venv/
+env/
+
+# archivos de base de datos
+*.sqlite3
+
+# archivos de cache
+*.pyc
+__pycache__/
+
+# archivos
+postgres_data
